@@ -1,7 +1,6 @@
 
 .div {
-    
-    width: auto;
-    height: 40rem;
+    min-width: 300px;
+    height: auto;
     border: 5px solid #fba9ee;
 }

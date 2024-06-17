@@ -4,7 +4,7 @@ import Track from "./Track"
 function TrackList(){
     return(
         <div>
-            <h1>TrackList</h1>
+            <Track />
             <Track />
         </div>
     )

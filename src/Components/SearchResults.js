@@ -4,7 +4,7 @@ import TrackList from "./TrackList"
 function SearchResults(){
     return(
         <div>
-            <h1>This is the Search Results</h1>
+            <h1>Results:</h1>
             <TrackList />
         </div>
     )
