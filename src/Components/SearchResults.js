@@ -1,11 +1,11 @@
 import React from "react";
-import TrackList from "./TrackList"
+import TrackList from "./TrackList.js"
 
-function SearchResults(){
+function SearchResults(props){
     return(
         <div>
             <h1>Results:</h1>
-            <TrackList />
+            <TrackList result={props.searchResults} />
         </div>
     )
 }

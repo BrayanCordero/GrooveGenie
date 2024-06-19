@@ -1,12 +1,17 @@
 import React from "react";
 import Track from "./Track"
 
-function TrackList(){
+function TrackList(props){
+    
     return(
         <div>
-            <Track />
-            <Track />
+            {props.result.map((track) => {
+                return(
+                    <Track key={track.id} track={track} />
+                )
+            })}
         </div>
+        
     )
 }
 
