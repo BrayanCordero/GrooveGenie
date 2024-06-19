@@ -5,7 +5,7 @@ function Playlist(props){
 
     const track = props.playlist.map(track => {
         return(<li key={track.id}>
-            <Track track={track} />
+            <Track track={track} isRemove={true} removeTrack={props.removeTrack} />
         </li>)
     })
 

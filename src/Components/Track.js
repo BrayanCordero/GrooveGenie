@@ -10,6 +10,25 @@ function Track(props){
         [props.addTrack, props.track]
     )
 
+    const removeTrack = useCallback(
+        (event) => {
+            props.removeTrack(props.track)
+        },
+        [props.removeTrack, props.track]
+    )
+    //checks for what kind of button to render, + or - 
+    const buttonRender = () => {
+        if(props.isRemove){
+            return (
+                <button className={styles.Button} onClick={removeTrack} >-</button>
+            )
+        }
+
+        return (
+            <button className={styles.Button} onClick={addTrack} >+</button>
+        )
+    }
+
     return(
         <div className={styles.container}>
             <div>
@@ -17,7 +36,7 @@ function Track(props){
                 <h2>Artist: {props.track.artist}</h2>
                 <h2>Album: {props.track.album}</h2>
             </div>
-            <button className={styles.Button} onClick={addTrack} >+</button>
+            {buttonRender()}
         </div>
     )
 }

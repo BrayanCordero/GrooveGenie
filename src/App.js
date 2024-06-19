@@ -18,13 +18,19 @@ function App() {
   const [playlistName, setPlaylistName] = useState("Playlist Name")
   const [playlist, setPlaylist] = useState([])
 
-const addToPlaylist = useCallback((track) => {
-  if(playlist.some((savedTrack) => savedTrack.id === track.id))
-    return;
+  const addToPlaylist = useCallback((track) => {
+    if(playlist.some((savedTrack) => savedTrack.id === track.id))
+      return;
 
-  setPlaylist(prevTrack => [...prevTrack, track])
-}, [playlist]
-) 
+    setPlaylist(prevTrack => [...prevTrack, track])
+  }, [playlist]
+  )
+  
+  const removeFromPlaylist = useCallback((track) => {
+    setPlaylist((prevTrack) => 
+      prevTrack.filter((currentTrack) => currentTrack.id !== track.id)
+    )
+  }, [])
 
   return (
     <div className="App">
@@ -35,7 +41,7 @@ const addToPlaylist = useCallback((track) => {
           <SearchResults searchResults={searchResults} addTrack={addToPlaylist} />
         </div>
         <div className={styles.div}>
-          <Playlist playlist={playlist} />
+          <Playlist playlist={playlist} removeTrack={removeFromPlaylist} />
         </div>
       </div>
     </div>
