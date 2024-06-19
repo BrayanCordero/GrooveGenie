@@ -10,14 +10,15 @@ function SearchBar(props){
         setUserInput(e.target.value)
     }
 
-    function handleClick(){
+    const handleClick= () =>{
+        props.search(userInput)
         setUserInput("")
     }
 
     return(
         <div>
             <div>
-                <input onChange={handleChange} type="text" value={userInput}></input>
+                <input onChange={handleChange} type="text" defaultValue={"Search Artist"}></input>
                 <br></br>
                 <button onClick={handleClick}>Search</button>
             </div>

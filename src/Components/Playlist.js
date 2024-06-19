@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useCallback } from "react";
 import Track from "./Track"
 
 function Playlist(props){
+
+    const updateName = useCallback((event) => {
+        props.updatePlaylistName(event.target.value)
+    }, [props.updatePlaylistName])
 
     const track = props.playlist.map(track => {
         return(<li key={track.id}>
@@ -11,7 +15,7 @@ function Playlist(props){
 
     return (
         <div>
-            <input type="text" placeholder="Play List Name"></input>
+            <input type="text" onChange={updateName} defaultValue={"New Playlist"} ></input>
             <ul style={{listStyle:"none"}}>
                 {track}
             </ul>
