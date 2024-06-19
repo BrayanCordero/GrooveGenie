@@ -15,19 +15,27 @@ const list = [
 function App() {
 
   const [searchResults, setSearchResults] = useState(list)
-  // const search = useCallback((term) => {
-  //   setSearchResults(term)
-  // })
+  const [playlistName, setPlaylistName] = useState("Playlist Name")
+  const [playlist, setPlaylist] = useState([])
+
+const addToPlaylist = useCallback((track) => {
+  if(playlist.some((savedTrack) => savedTrack.id === track.id))
+    return;
+
+  setPlaylist(prevTrack => [...prevTrack, track])
+}, [playlist]
+) 
+
   return (
     <div className="App">
       <h1>Playlist Maker</h1>
       <SearchBar />
       <div id="result-playlist-container">
         <div className={styles.div}>
-          <SearchResults searchResults={searchResults}/>
+          <SearchResults searchResults={searchResults} addTrack={addToPlaylist} />
         </div>
         <div className={styles.div}>
-          <Playlist />
+          <Playlist playlist={playlist} />
         </div>
       </div>
     </div>

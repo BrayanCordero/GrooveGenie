@@ -5,7 +5,7 @@ function TrackList(props){
 
     const track = props.result.map(track =>{
         return(<li key={track.id}>
-            <Track track={track}/>
+            <Track track={track} addTrack={props.addTrack} />
                 </li>)
     })
     

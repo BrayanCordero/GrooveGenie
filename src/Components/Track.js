@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useCallback } from "react";
 import styles from "../Styles/Track.module.css"
 
 function Track(props){
-    // console.log(props.album)
+    
+    const addTrack = useCallback(
+        (event) => {
+            props.addTrack(props.track)
+        },
+        [props.addTrack, props.track]
+    )
+
     return(
         <div className={styles.container}>
             <div>
@@ -10,7 +17,7 @@ function Track(props){
                 <h2>Artist: {props.track.artist}</h2>
                 <h2>Album: {props.track.album}</h2>
             </div>
-            <button className={styles.Button}>+</button>
+            <button className={styles.Button} onClick={addTrack} >+</button>
         </div>
     )
 }
