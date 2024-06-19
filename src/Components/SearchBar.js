@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useCallback, useState} from "react";
 
 
 
@@ -6,14 +6,13 @@ function SearchBar(props){
 
     const [userInput, setUserInput] = useState("")
 
-    function handleChange(e){
-        setUserInput(e.target.value)
-    }
+    const handleChange = useCallback((event) => {
+        setUserInput(event.target.value)
+    },[])
 
-    const handleClick= () =>{
+    const handleClick= useCallback(() =>{
         props.search(userInput)
-        setUserInput("")
-    }
+    }, [props, userInput])
 
     return(
         <div>

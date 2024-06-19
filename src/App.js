@@ -18,6 +18,7 @@ function App() {
   const [searchResults, setSearchResults] = useState([])
   const [playlistName, setPlaylistName] = useState("")
   const [playlist, setPlaylist] = useState([])
+  const [savePlaylist, setSavePlaylist] = useState([])
 
   const search = useCallback((artist) => {
     list.forEach((track) => {
@@ -25,6 +26,7 @@ function App() {
         setSearchResults(prevTrack => [...prevTrack, track])
       }
     })
+
   }, [])
 
   const addToPlaylist = useCallback((track) => {
@@ -44,6 +46,8 @@ function App() {
   const renamePlaylist = useCallback((name) => {
     setPlaylistName(name)
   },[])
+
+  
 
   return (
     <div className="App">
