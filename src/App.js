@@ -4,13 +4,8 @@ import SearchBar from "./Components/SearchBar";
 import SearchResults from './Components/SearchResults';
 import Playlist from './Components/Playlist';
 import styles from "./Styles/SearchResults.module.css"
+import Spotify from "./Util/Spotify"
 
-const list = [
-  {id:0, album:"Master of Puppets", artist:"Metallica", trackName:"Master of Puppets"},
-  {id:1, album:"Toxicity", artist:"System of a Down", trackName:"Toxicity"},
-  {id:2, album:"Ride the Lightning", artist:"Metallica", trackName:"Ride the Lightning"},
-  {id:3, album:"...And Justice for All", artist:"Metallica", trackName:"Blackened"}
-]
 
 
 function App() {
@@ -18,20 +13,16 @@ function App() {
   const [searchResults, setSearchResults] = useState([])
   const [playlistName, setPlaylistName] = useState("")
   const [playlist, setPlaylist] = useState([])
-  const [savePlaylist, setSavePlaylist] = useState([])
+
 
   const search = useCallback((artist) => {
     // checks to not add duplicate tracks of the same artist to the results component
-    if(searchResults.some(saveResults => saveResults.artist === artist))
-      return;
+    // if(searchResults.some(saveResults => saveResults.artist === artist))
+    //   return;
 
-    list.forEach((track) => {
-      if(track.artist === artist){
-        setSearchResults(prevTrack => [...prevTrack, track])
-      }
-    })
+    Spotify.search(artist).then(setSearchResults)
 
-  }, [searchResults])
+  }, [])
 
   const addToPlaylist = useCallback((track) => {
     // checks to not add duplicate tracks 
@@ -52,9 +43,13 @@ function App() {
     setPlaylistName(name)
   },[])
 
-  // const saveToSpotify = useCallback(() => {
-    
-  // })
+  const saveToSpotify = useCallback(() => {
+    const trackUris = playlist.map(track => track.uri)
+    Spotify.savePlaylist(playlistName, trackUris).then(() =>{
+      setPlaylistName("New Playlist")
+      setPlaylist([])
+    })
+  }, [playlistName, playlist])
 
   return (
     <div className="App">
@@ -65,7 +60,7 @@ function App() {
           <SearchResults searchResults={searchResults} addTrack={addToPlaylist} />
         </div>
         <div className={styles.div}>
-          <Playlist playlistName={playlistName} playlist={playlist} removeTrack={removeFromPlaylist} updatePlaylistName={renamePlaylist} />
+          <Playlist playlistName={playlistName} playlist={playlist} removeTrack={removeFromPlaylist} updatePlaylistName={renamePlaylist} savePlaylist={saveToSpotify} />
         </div>
       </div>
     </div>

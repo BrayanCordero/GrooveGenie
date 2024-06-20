@@ -32,7 +32,7 @@ function Track(props){
     return(
         <div className={styles.container}>
             <div>
-                <h2>Track Name: {props.track.trackName}</h2>
+                <h2>Track Name: {props.track.name}</h2>
                 <h2>Artist: {props.track.artist}</h2>
                 <h2>Album: {props.track.album}</h2>
             </div>

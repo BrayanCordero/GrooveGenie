@@ -20,7 +20,7 @@ function Playlist(props){
                 {track}
             </ul>
             <br></br>
-            <button>Save to Spotify</button>
+            <button onClick={props.savePlaylist} >Save to Spotify</button>
         </div>
     )
 }
