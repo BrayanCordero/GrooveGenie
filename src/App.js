@@ -21,15 +21,20 @@ function App() {
   const [savePlaylist, setSavePlaylist] = useState([])
 
   const search = useCallback((artist) => {
+    // checks to not add duplicate tracks of the same artist to the results component
+    if(searchResults.some(saveResults => saveResults.artist === artist))
+      return;
+
     list.forEach((track) => {
       if(track.artist === artist){
         setSearchResults(prevTrack => [...prevTrack, track])
       }
     })
 
-  }, [])
+  }, [searchResults])
 
   const addToPlaylist = useCallback((track) => {
+    // checks to not add duplicate tracks 
     if(playlist.some((savedTrack) => savedTrack.id === track.id))
       return;
 
@@ -47,7 +52,9 @@ function App() {
     setPlaylistName(name)
   },[])
 
-  
+  // const saveToSpotify = useCallback(() => {
+    
+  // })
 
   return (
     <div className="App">
