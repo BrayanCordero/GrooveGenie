@@ -1,26 +1,31 @@
-*{
-  background-color: #6d02c3;
-  color:#68faff;
-  font-size: 1rem;
-}
 
-.App {
+/* .App {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: url("./img/Background_Groove.jpg");
+  background-size: cover;
+  color: #fff;
+} */
+
+h1{
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  width: auto;
+  margin-top: 20px;
+  font-size: 3em;
+  text-shadow: 2px 2px 4px #000;
 }
 
-.App h1{
-  font-size: 2rem;
-  margin: 2rem auto;
-}
-
-#result-playlist-container{
-  margin-top: 6rem;
+#container{
   display: flex;
-  flex-direction: row;
   justify-content: space-around;
+  margin: 20px;
+  flex-wrap: wrap;
+}
+
+@media (max-width:1200px){
+  #container {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 

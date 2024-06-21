@@ -1,5 +1,6 @@
 import React from "react";
 import Track from "./Track"
+import styles from "../Styles/TrackList.module.css"
 
 function TrackList(props){
 
@@ -11,7 +12,7 @@ function TrackList(props){
     
     return(
         <div>
-            <ul style={{listStyle:"none"}}>
+            <ul className={styles.track_list_ul} style={{listStyle:"none", padding:0, margin:0}}>
                 {track}
             </ul>
         </div>

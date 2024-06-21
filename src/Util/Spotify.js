@@ -6,6 +6,7 @@ let accessToken;
 
 const Spotify = {
     getAccessToken() {
+    // checks if there is an accessToken, if yes then returns that token. 
     if (accessToken) {
         return accessToken;
     }

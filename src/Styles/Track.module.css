@@ -1,22 +1,42 @@
-.container {
+.track_container{
+    padding: 5px;
     display: flex;
     justify-content: space-between;
-    width: auto;
-    height: 100px;
-    border: 5px solid black;
-    margin: 5px;
-    text-align: left;
-    padding-left: 10px;
+    align-items: center;
+    border: 3px solid #fff;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
 
-.Button{
-    margin-left: 5px;
-    height: auto;
-    width: 50px;
+/* to take the remaining space */
+.track_details {
+    flex:1 ;
 }
 
+.track_name {
+    font-weight: bold;
+}
 
-/* .info {
-    height: 20px;
-    align-items: end;
-} */
+.track_artist {
+    font-style: italic;
+    color: #ccc;
+}
+
+.track_album {
+    font-size: 0.9em;
+    color: #aaa;
+}
+
+.button_add {
+    background-color: #00bcd4;
+    color: #fff;
+}
+
+.button_remove {
+    background-color: #f44336;
+    color: #fff;
+}
+
+.button_add, .button_remove:hover {
+    opacity: 0.8;
+}

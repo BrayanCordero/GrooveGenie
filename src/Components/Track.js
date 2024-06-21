@@ -20,21 +20,21 @@ function Track(props){
     const buttonRender = () => {
         if(props.isRemove){
             return (
-                <button className={styles.Button} onClick={removeTrack} >-</button>
+                <button className={styles.button_remove} onClick={removeTrack} >-</button>
             )
         }
 
         return (
-            <button className={styles.Button} onClick={addTrack} >+</button>
+            <button className={styles.button_add} onClick={addTrack} >+</button>
         )
     }
 
     return(
-        <div className={styles.container}>
-            <div>
-                <h2>Track Name: {props.track.name}</h2>
-                <h2>Artist: {props.track.artist}</h2>
-                <h2>Album: {props.track.album}</h2>
+        <div className={styles.track_container}>
+            <div className={styles.track_details}>
+                <h2 className={styles.track_name}>Track Name: {props.track.name}</h2>
+                <h2 className={styles.track_artist}>Artist: {props.track.artist}</h2>
+                <h2 className={styles.track_album}>Album: {props.track.album}</h2>
             </div>
             {buttonRender()}
         </div>

@@ -3,7 +3,6 @@ import React, { useCallback, useState } from "react";
 import SearchBar from "./Components/SearchBar"; 
 import SearchResults from './Components/SearchResults';
 import Playlist from './Components/Playlist';
-import styles from "./Styles/SearchResults.module.css"
 import Spotify from "./Util/Spotify"
 
 
@@ -53,15 +52,11 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Playlist Maker</h1>
+      <h1>GrooveGenie</h1>
       <SearchBar search={search} />
-      <div id="result-playlist-container">
-        <div className={styles.div}>
+      <div id='container'>
           <SearchResults searchResults={searchResults} addTrack={addToPlaylist} />
-        </div>
-        <div className={styles.div}>
           <Playlist playlistName={playlistName} playlist={playlist} removeTrack={removeFromPlaylist} updatePlaylistName={renamePlaylist} savePlaylist={saveToSpotify} />
-        </div>
       </div>
     </div>
   );

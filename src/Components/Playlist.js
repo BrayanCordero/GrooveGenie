@@ -1,5 +1,6 @@
 import React, { useCallback } from "react";
 import Track from "./Track"
+import styles from "../Styles/Playlist.module.css"
 
 function Playlist(props){
 
@@ -14,13 +15,12 @@ function Playlist(props){
     })
 
     return (
-        <div>
-            <input type="text" onChange={updateName} defaultValue={"New Playlist"} ></input>
-            <ul style={{listStyle:"none"}}>
+        <div className={styles.playlist}>
+            <input className={styles.name} type="text" onChange={updateName} defaultValue={"New Playlist"} ></input>
+            <ul className={styles.playlist_ul}>
                 {track}
             </ul>
-            <br></br>
-            <button onClick={props.savePlaylist} >Save to Spotify</button>
+            <button className={styles.playlist_button} onClick={props.savePlaylist} >Save to Spotify</button>
         </div>
     )
 }

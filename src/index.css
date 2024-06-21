@@ -5,6 +5,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: url("./img/Background_Groove.jpg");
+  background-size: cover;
+  color: #fff;
 }
 
 code {
