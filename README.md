@@ -2,7 +2,7 @@
 
 ## Overview
 
-GooveGenie is a web application that allows users to search for tracks, create custom playlis, and save them to Spotify account. This project uses React for the front-end development and integrates with the Spotify API to fetch track information and save playlist to user account.
+GooveGenie is a web application that allows users to search for tracks, create custom playlis, and save them to thier Spotify account. This project uses React for the front-end development and integrates with the Spotify API to fetch track information and save playlist to user account.
 
 ## Features
 
